@@ -34,14 +34,14 @@ public class Primes {
             }
             Long p = map.get(i);
             if (p == null)
-                p = new Long(0);
+                p = Long.valueOf(0);
             p += c;
             map.put(i, p);
         }
         if (n > 1) {
             Long p = map.get(n);
             if (p == null)
-                p = new Long(0);
+                p = Long.valueOf(0);
             p += 1;
             map.put(n, p);
         }

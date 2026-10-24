@@ -80,7 +80,7 @@ public class SuffixArray {
         KMRarray = new ArrayList<Integer>(KMR.subList(0, length));
         suffixArray = new ArrayList<Integer>();
         for (KMRsWithIndex kmr : KMRinvertedList) {
-            suffixArray.add(new Integer(kmr.index));
+            suffixArray.add(Integer.valueOf(kmr.index));
         }
     }
 
@@ -95,13 +95,13 @@ public class SuffixArray {
     private ArrayList<Integer> getKMR(ArrayList<KMRsWithIndex> KMRinvertedList, int length) {
         final ArrayList<Integer> KMR = new ArrayList<Integer>(length*2);
         for (int i=0; i<2*length; i++) 
-            KMR.add(new Integer(-1));
+            KMR.add(Integer.valueOf(-1));
 
         int counter = 0;
         for (int i=0; i<length; i++){
             if(i>0 && substringsAreEqual(KMRinvertedList, i))
                 counter++;
-            KMR.set(KMRinvertedList.get(i).index, new Integer(counter));
+            KMR.set(KMRinvertedList.get(i).index, Integer.valueOf(counter));
         }
 
         return KMR;
@@ -150,9 +150,9 @@ public class SuffixArray {
         final ArrayList<Integer> result = new ArrayList<Integer>(length*2);
         final char[] characters = string.toCharArray();
         for (int i=0; i<length; i++)
-            result.add(new Integer(characters[i]));
+            result.add(Integer.valueOf(characters[i]));
         for (int i=0; i<length; i++)
-            result.add(new Integer(-1));
+            result.add(Integer.valueOf(-1));
         return result;
     }
 

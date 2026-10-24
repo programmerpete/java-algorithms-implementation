@@ -129,17 +129,17 @@ public class Matrix<T extends Number> {
             zero = (T)BigInteger.ZERO;
             one = (T)BigInteger.ONE;
         } else if(element instanceof Long){
-            zero = (T)new Long(0);
-            one = (T)new Long(1);
+            zero = (T)Long.valueOf(0);
+            one = (T)Long.valueOf(1);
         } else if(element instanceof Double){
-            zero = (T)new Double(0);
-            one = (T)new Double(1);
+            zero = (T)Double.valueOf(0);
+            one = (T)Double.valueOf(1);
         } else if(element instanceof Float){
-            zero = (T)new Float(0);
-            one = (T)new Float(1);
+            zero = (T)Float.valueOf(0);
+            one = (T)Float.valueOf(1);
         } else {
-            zero = (T)new Integer(0);
-            one = (T)new Integer(1);
+            zero = (T)Integer.valueOf(0);
+            one = (T)Integer.valueOf(1);
         }
 
         final T array[][] = (T[][])new Number[this.rows][this.cols];

@@ -601,7 +601,7 @@ public class HashArrayMappedTrie<K, V> implements IMap<K,V> {
         private void addToSet(java.util.Set<java.util.Map.Entry<K, V>> set, Node node) {
             if (node instanceof KeyValueNode) {
                 KeyValueNode<V> kvNode = (KeyValueNode<V>) node;
-                set.add(new JavaCompatibleMapEntry<K,V>((K)new Integer(kvNode.key), kvNode.value));
+                set.add(new JavaCompatibleMapEntry<K,V>((K)Integer.valueOf(kvNode.key), kvNode.value));
             } else if (node instanceof ArrayNode) {
                 ArrayNode arrayNode = (ArrayNode) node;
                 for (int i=0; i<MAX_BITS; i++) {
