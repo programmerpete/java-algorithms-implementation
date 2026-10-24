@@ -80,14 +80,17 @@ public class AmericanFlagSort {
     }
 
     private static int getMaxNumberOfDigits(Integer[] unsorted) {
-        int max = Integer.MIN_VALUE;
-        int temp = 0;
+        // Find the largest value in one pass and then count its digits, instead of calling
+        // Math.log10 once per element. Unlike Math.log10 this is also well defined for 0.
+        int max = 0;
         for (int i : unsorted) {
-            temp = (int) Math.log10(i) + 1;
-            if (temp > max)
-                max = temp;
+            if (i > max)
+                max = i;
         }
-        return max;
+        int digits = 0;
+        for (int value = max; value > 0; value /= 10)
+            digits++;
+        return digits;
     }
 
     private static int getDigit(int integer, int divisor) {

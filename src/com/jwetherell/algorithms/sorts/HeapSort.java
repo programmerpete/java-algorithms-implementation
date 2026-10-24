@@ -32,68 +32,41 @@ public class HeapSort<T extends Comparable<T>> {
         int length = unsorted.length;
         for (int index = length - 1; index > 0; index--) {
             swap(0, index, unsorted); // swap root with the last heap element
-            int i = 0; // index of the element being moved down the tree
-            while (true) {
-                int left = (i * 2) + 1;
-                if (left >= index) // node has no left child
-                    break;
-                int right = left + 1;
-                if (right >= index) { // node has a left child, but no right child
-                    if (unsorted[left].compareTo(unsorted[i]) > 0)
-                        swap(left, i, unsorted); // if left child is greater than node
-                    break;
-                }
-                T ithElement = unsorted[i];
-                T leftElement = unsorted[left];
-                T rightElement = unsorted[right];
-                if (ithElement.compareTo(leftElement) < 0) { // (left > i)
-                    if (unsorted[left].compareTo(rightElement) > 0) { // (left > right)
-                        swap(left, i, unsorted);
-                        i = left;
-                        continue;
-                    } 
-                    // (left > i)
-                    swap(right, i, unsorted);
-                    i = right;
-                    continue;
-                } 
-                // (i > left)
-                if (rightElement.compareTo(ithElement) > 0) {
-                    swap(right, i, unsorted);
-                    i = right;
-                    continue;
-                } 
-                // (n > left) & (n > right)
-                break;
-            }
+            siftDown(0, index, unsorted);
         }
     }
 
     private static <T extends Comparable<T>> void createHeap(T[] unsorted) {
-        // Creates a max heap
-        int size = 0;
-        int length = unsorted.length;
-        for (int i = 0; i < length; i++) {
-            T e = unsorted[i];
-            size = add(size, e, unsorted);
-        }
+        // Creates a max heap using Floyd's method: sift down every internal node from the
+        // bottom up. This is O(n), versus the O(n*log n) of inserting each element with a
+        // sift up, and it produces the same heap ordering guarantees.
+        for (int i = (unsorted.length / 2) - 1; i >= 0; i--)
+            siftDown(i, unsorted.length, unsorted);
     }
 
-    private static <T extends Comparable<T>> int add(int size, T element, T[] unsorted) {
-        int length = size;
-        int i = length;
-        unsorted[length++] = element;
-        T e = unsorted[i];
-        int parentIndex = ((i - 1) / 2);
-        T parent = unsorted[parentIndex];
-        while (e.compareTo(parent) > 0) {
-            swap(parentIndex, i, unsorted);
-            i = parentIndex;
-            e = unsorted[i];
-            parentIndex = ((i - 1) / 2);
-            parent = unsorted[parentIndex];
+    /**
+     * Move the element at index down the heap until both children are no greater than it.
+     * The element being moved is held in a register and larger children are shifted up one
+     * level at a time, which is one write per level instead of the two a swap needs.
+     *
+     * @param index of the element to move down.
+     * @param end   index one past the last element of the heap.
+     * @param unsorted array containing the heap.
+     */
+    private static <T extends Comparable<T>> void siftDown(int index, int end, T[] unsorted) {
+        final T value = unsorted[index];
+        int child = (index * 2) + 1;
+        while (child < end) {
+            int right = child + 1;
+            if (right < end && unsorted[right].compareTo(unsorted[child]) > 0)
+                child = right; // the larger of the two children
+            if (unsorted[child].compareTo(value) <= 0)
+                break;
+            unsorted[index] = unsorted[child];
+            index = child;
+            child = (index * 2) + 1;
         }
-        return length;
+        unsorted[index] = value;
     }
 
     private static <T extends Comparable<T>> void swap(int parentIndex, int childIndex, T[] unsorted) {

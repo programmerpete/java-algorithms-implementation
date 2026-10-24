@@ -31,15 +31,14 @@ public class InsertionSort<T extends Comparable<T>> {
     }
 
     private static <T extends Comparable<T>> void sort(int i, T[] unsorted) {
-        for (int j = i; j > 0; j--) {
-            T jthElement = unsorted[j];
-            T jMinusOneElement = unsorted[j - 1];
-            if (jthElement.compareTo(jMinusOneElement) < 0) {
-                unsorted[j - 1] = jthElement;
-                unsorted[j] = jMinusOneElement;
-            } else {
-                break;
-            }
+        // Hold the displaced element in a register and shift each larger element one
+        // slot right, so a shift costs one write instead of the two a swap needs.
+        final T value = unsorted[i];
+        int j = i;
+        while (j > 0 && value.compareTo(unsorted[j - 1]) < 0) {
+            unsorted[j] = unsorted[j - 1];
+            j--;
         }
+        unsorted[j] = value;
     }
 }

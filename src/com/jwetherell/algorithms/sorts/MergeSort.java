@@ -25,20 +25,23 @@ public class MergeSort<T extends Comparable<T>> {
     private MergeSort() { }
 
     public static <T extends Comparable<T>> T[] sort(SPACE_TYPE type, T[] unsorted) {
-        sort(type, 0, unsorted.length, unsorted);
+        // One merge buffer for the whole sort instead of a fresh array per merge, which
+        // turns O(n*log n) allocation into O(n).
+        final T[] scratch = (type == SPACE_TYPE.NOT_IN_PLACE) ? (T[]) new Comparable[unsorted.length] : null;
+        sort(type, 0, unsorted.length, unsorted, scratch);
         return unsorted;
     }
 
-    private static <T extends Comparable<T>> void sort(SPACE_TYPE type, int start, int length, T[] unsorted) {
+    private static <T extends Comparable<T>> void sort(SPACE_TYPE type, int start, int length, T[] unsorted, T[] scratch) {
         if (length > 2) {
-            int aLength = (int) Math.floor(length / 2);
+            int aLength = length / 2;
             int bLength = length - aLength;
-            sort(type, start, aLength, unsorted);
-            sort(type, start + aLength, bLength, unsorted);
+            sort(type, start, aLength, unsorted, scratch);
+            sort(type, start + aLength, bLength, unsorted, scratch);
             if (type == SPACE_TYPE.IN_PLACE)
                 mergeInPlace(start, aLength, start + aLength, bLength, unsorted);
             else
-                mergeWithExtraStorage(start, aLength, start + aLength, bLength, unsorted);
+                mergeWithExtraStorage(start, aLength, start + aLength, bLength, unsorted, scratch);
         } else if (length == 2) {
             T e = unsorted[start + 1];
             if (e.compareTo(unsorted[start]) < 0) {
@@ -69,29 +72,18 @@ public class MergeSort<T extends Comparable<T>> {
         }
     }
 
-    private static <T extends Comparable<T>> void mergeWithExtraStorage(int aStart, int aLength, int bStart, int bLength, T[] unsorted) {
+    private static <T extends Comparable<T>> void mergeWithExtraStorage(int aStart, int aLength, int bStart, int bLength, T[] unsorted, T[] output) {
         int count = 0;
-        T[] output = (T[]) new Comparable[aLength + bLength];
         int i = aStart;
         int j = bStart;
-        int aSize = aStart + aLength;
-        int bSize = bStart + bLength;
-        while (i < aSize || j < bSize) {
-            T a = null;
-            if (i < aSize) {
-                a = unsorted[i];
-            }
-            T b = null;
-            if (j < bSize) {
-                b = unsorted[j];
-            }
-            if (a != null && b == null) {
-                output[count++] = a;
-                i++;
-            } else if (b != null && a == null) {
-                output[count++] = b;
-                j++;
-            } else if (b != null && b.compareTo(a) <= 0) {
+        final int aSize = aStart + aLength;
+        final int bSize = bStart + bLength;
+        // Take from the right run when its element is <= the left run's, which is what
+        // keeps the sort stable.
+        while (i < aSize && j < bSize) {
+            final T a = unsorted[i];
+            final T b = unsorted[j];
+            if (b.compareTo(a) <= 0) {
                 output[count++] = b;
                 j++;
             } else {
@@ -99,10 +91,10 @@ public class MergeSort<T extends Comparable<T>> {
                 i++;
             }
         }
-        int x = 0;
-        int size = aStart + aLength + bLength;
-        for (int y = aStart; y < size; y++) {
-            unsorted[y] = output[x++];
-        }
+        while (i < aSize)
+            output[count++] = unsorted[i++];
+        while (j < bSize)
+            output[count++] = unsorted[j++];
+        System.arraycopy(output, 0, unsorted, aStart, aLength + bLength);
     }
 }
