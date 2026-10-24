@@ -1,12 +1,12 @@
 package com.jwetherell.algorithms.mathematics.test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.mathematics.Permutations;
 
@@ -50,25 +50,25 @@ public class PermutationsTest {
 		allPermutations.add(secondPermutation);
 
 		final List<List<Integer>> result = Permutations.getAllPermutations(numbers);
-		assertTrue("allPermutations="+allPermutations+" result="+result, allPermutations.equals(result));
+		assertTrue(allPermutations.equals(result), "allPermutations="+allPermutations+" result="+result);
 	}
 
     @Test
     public void testPermutation1() {
         final String string = "abc";
         final String[] list = Permutations.permutations(string);
-        Assert.assertTrue(list[0].equals("abc"));
-        Assert.assertTrue(list[5].equals("cba"));
+        Assertions.assertTrue(list[0].equals("abc"));
+        Assertions.assertTrue(list[5].equals("cba"));
     }
 
     @Test
     public void testPermutation2() {
         final String string = "abcd";
         final String[] list = Permutations.permutations(string);
-        Assert.assertTrue(list[0].equals("abcd"));
-        Assert.assertTrue(list[5].equals("adcb"));
-        Assert.assertTrue(list[11].equals("bdca"));
-        Assert.assertTrue(list[17].equals("cdba"));
-        Assert.assertTrue(list[23].equals("dcba"));
+        Assertions.assertTrue(list[0].equals("abcd"));
+        Assertions.assertTrue(list[5].equals("adcb"));
+        Assertions.assertTrue(list[11].equals("bdca"));
+        Assertions.assertTrue(list[17].equals("cdba"));
+        Assertions.assertTrue(list[23].equals("dcba"));
     }
 }

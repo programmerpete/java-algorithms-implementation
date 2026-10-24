@@ -1,7 +1,7 @@
 package com.jwetherell.algorithms.data_structures.test;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.DisjointSet;
 
@@ -23,8 +23,8 @@ public class DisjointSetTests {
             final DisjointSet.Item<Integer> s = DisjointSet.makeSet(v);
             items[i] = s;
             final DisjointSet.Item<Integer> f = DisjointSet.find(s);
-            Assert.assertTrue(f!=null);
-            Assert.assertTrue(f.getValue() == v);
+            Assertions.assertTrue(f!=null);
+            Assertions.assertTrue(f.getValue() == v);
         }
         if (DEBUG)
             System.out.println(toString(items));
@@ -52,12 +52,12 @@ public class DisjointSetTests {
         for (int i=0; i<half; i++) {
             final DisjointSet.Item<Integer> item = items[i];
             final DisjointSet.Item<Integer> result = DisjointSet.find(item);
-            Assert.assertTrue(result.equals(first));
+            Assertions.assertTrue(result.equals(first));
         }
         for (int i=half; i<items.length; i++) {
             final DisjointSet.Item<Integer> item = items[i];
             final DisjointSet.Item<Integer> result = DisjointSet.find(item);
-            Assert.assertTrue(result.equals(second));
+            Assertions.assertTrue(result.equals(second));
         }
 
         // union the second set and the first set and make sure the superset is created properly
@@ -71,7 +71,7 @@ public class DisjointSetTests {
         for (int i=0; i<items.length; i++) {
             final DisjointSet.Item<Integer> item = items[i];
             final DisjointSet.Item<Integer> result = DisjointSet.find(item);
-            Assert.assertTrue(result.equals(superSet));
+            Assertions.assertTrue(result.equals(superSet));
         }
     }
 
@@ -88,8 +88,8 @@ public class DisjointSetTests {
             final DisjointSet.Item<Integer> s = DisjointSet.makeSet(v);
             items[i] = s;
             final DisjointSet.Item<Integer> f = DisjointSet.find(s);
-            Assert.assertTrue(f!=null);
-            Assert.assertTrue(f.getValue() == v);
+            Assertions.assertTrue(f!=null);
+            Assertions.assertTrue(f.getValue() == v);
         }
         if (DEBUG)
             System.out.println(toString(items));
@@ -122,7 +122,7 @@ public class DisjointSetTests {
         DisjointSet.Item<Integer> s1 = DisjointSet.union(i1, i2);
         DisjointSet.Item<Integer> s2 = DisjointSet.union(i3, i4);
         DisjointSet.Item<Integer> s3 = DisjointSet.union(s1, s2);
-        Assert.assertTrue(s3.getValue()==1 && s3.getRank()==3);
+        Assertions.assertTrue(s3.getValue()==1 && s3.getRank()==3);
         if (DEBUG)
             System.out.println(toString(items));
     }

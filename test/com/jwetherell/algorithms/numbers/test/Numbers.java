@@ -1,11 +1,11 @@
 package com.jwetherell.algorithms.numbers.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.numbers.Integers;
 import com.jwetherell.algorithms.numbers.Longs;
@@ -21,23 +21,23 @@ public class Numbers {
 
         boolean isPowOf2is = Integers.powerOfTwoUsingBits(is);
         boolean isPowOf2isNot = Integers.powerOfTwoUsingBits(isNot);
-        assertTrue("Is power of 2 using bits error", isPowOf2is);
-        assertFalse("Is power of 2 using bits error", isPowOf2isNot);
+        assertTrue(isPowOf2is, "Is power of 2 using bits error");
+        assertFalse(isPowOf2isNot, "Is power of 2 using bits error");
 
         isPowOf2is = Integers.powerOfTwoUsingLog(is);
         isPowOf2isNot = Integers.powerOfTwoUsingLog(isNot);
-        assertTrue("Is power of 2 using logarithm error", isPowOf2is);
-        assertFalse("Is power of 2 using logarithm error", isPowOf2isNot);
+        assertTrue(isPowOf2is, "Is power of 2 using logarithm error");
+        assertFalse(isPowOf2isNot, "Is power of 2 using logarithm error");
 
         isPowOf2is = Integers.powerOfTwoUsingLoop(is);
         isPowOf2isNot = Integers.powerOfTwoUsingLoop(isNot);
-        assertTrue("Is power of 2 using loops error", isPowOf2is);
-        assertFalse("Is power of 2 using loops error", isPowOf2isNot);
+        assertTrue(isPowOf2is, "Is power of 2 using loops error");
+        assertFalse(isPowOf2isNot, "Is power of 2 using loops error");
 
         isPowOf2is = Integers.powerOfTwoUsingRecursion(is);
         isPowOf2isNot = Integers.powerOfTwoUsingRecursion(isNot);
-        assertTrue("Is power of 2 using recursion error", isPowOf2is);
-        assertFalse("Is power of 2 using recursion error", isPowOf2isNot);
+        assertTrue(isPowOf2is, "Is power of 2 using recursion error");
+        assertFalse(isPowOf2isNot, "Is power of 2 using recursion error");
     }
 
     @Test
@@ -46,16 +46,16 @@ public class Numbers {
         String check = Integer.toBinaryString(a);
 
         String result1 = Integers.toBinaryUsingBigDecimal(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result1+"\n", (check.equals(result1)));
+        assertTrue((check.equals(result1)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result1+"\n");
 
         String result2 = Integers.toBinaryUsingDivideAndDouble(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result2+"\n", (check.equals(result2)));
+        assertTrue((check.equals(result2)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result2+"\n");
 
         String result3 = Integers.toBinaryUsingDivideAndModulus(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result3+"\n", (check.equals(result3)));
+        assertTrue((check.equals(result3)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result3+"\n");
 
         String result4 = Integers.toBinaryUsingShiftsAndModulus(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result4+"\n", (check.equals(result4)));
+        assertTrue((check.equals(result4)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot="+result4+"\n");
     }
 
     @Test
@@ -64,13 +64,13 @@ public class Numbers {
         String check = Long.toBinaryString(a);
 
         String result1 = Longs.toBinaryUsingBigDecimal(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result1+"\n", (check.equals(result1)));
+        assertTrue((check.equals(result1)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result1+"\n");
 
         String result2 = Longs.toBinaryUsingDivideAndModulus(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result2+"\n", (check.equals(result2)));
+        assertTrue((check.equals(result2)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result2+"\n");
 
         String result3 = Longs.toBinaryUsingShiftsAndModulus(a);
-        assertTrue("toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result3+"\n", (check.equals(result3)));
+        assertTrue((check.equals(result3)), "toBinary using BigDecimal error. random="+a+" expected=\n"+check+"\ngot=\n"+result3+"\n");
     }
 
     @Test
@@ -78,31 +78,31 @@ public class Numbers {
         int a = -1001; 
         String check = "negative one-thousand one";
         String english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
 
         a = -1;
         check = "negative one";
         english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
 
         a = 0;
         check = "zero";
         english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
 
         a = 199;
         check = "one-hundred ninety-nine";
         english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
 
         a = Integer.MAX_VALUE; // 2,147,483,647
         check = "two-billion one-hundred forty-seven-million four-hundred eighty-three-thousand six-hundred forty-seven";
         english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
 
         a = Integer.MIN_VALUE+1; // -2,147,483,647
         check = "negative two-billion one-hundred forty-seven-million four-hundred eighty-three-thousand six-hundred forty-seven";
         english = Integers.toEnglish(a);
-        assertTrue("toEnglish error. a="+a+" expected="+check+" got="+english, (check.equals(english)));
+        assertTrue((check.equals(english)), "toEnglish error. a="+a+" expected="+check+" got="+english);
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import com.jwetherell.algorithms.data_structures.KdTree;
 import com.jwetherell.algorithms.data_structures.QuadTree;
@@ -320,7 +320,7 @@ public class SpatialDataStructuresTiming {
         String toString = "";
         if (isTrue==false)
             toString = p.toString()+"\n"+"data=["+stringifiedData+"]\n"+obj.toString();
-        Assert.assertTrue(msg+toString, isTrue);
+        Assertions.assertTrue(isTrue, msg+toString);
     }
 
     // Assertion which won't call toString on the tree unless the assertion fails
@@ -328,6 +328,6 @@ public class SpatialDataStructuresTiming {
         String toString = "";
         if (isTrue==false)
             toString = p.toString()+"\n"+"data=["+stringifiedData+"]\n"+obj.toString();
-        Assert.assertTrue(msg+toString, isTrue);
+        Assertions.assertTrue(isTrue, msg+toString);
     }
 }

@@ -1,11 +1,11 @@
 package com.jwetherell.algorithms.data_structures.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collection;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.BinarySearchTree;
 import com.jwetherell.algorithms.data_structures.BinarySearchTree.DepthFirstSearchOrder;
@@ -51,7 +51,7 @@ public class BinarySearchTreeTests {
         final Integer[] inOrder = testBST.getBFS();
         final Integer[] expectation = new Integer[]{4, 2, 5, 1, 3};
         for (int i=0; i<inOrder.length; i++) {
-            Assert.assertTrue(inOrder[i] == expectation[i]);
+            Assertions.assertTrue(inOrder[i] == expectation[i]);
         }
     }
 
@@ -61,7 +61,7 @@ public class BinarySearchTreeTests {
         final Integer[] inOrder = testBST.getBFS();
         final Integer[] expectation = new Integer[]{4, 2, 5, 1, 3};
         for (int i=0; i<inOrder.length; i++) {
-            Assert.assertTrue(inOrder[i] == expectation[i]);
+            Assertions.assertTrue(inOrder[i] == expectation[i]);
         }
     }
 
@@ -83,7 +83,7 @@ public class BinarySearchTreeTests {
         final Integer[] inOrder = testBST.getDFS(DepthFirstSearchOrder.preOrder);
         final Integer[] expectation = new Integer[]{4, 2, 1, 3, 5};
         for (int i=0; i<inOrder.length; i++) {
-            Assert.assertTrue(inOrder[i] == expectation[i]);
+            Assertions.assertTrue(inOrder[i] == expectation[i]);
         }
     }
 
@@ -104,7 +104,7 @@ public class BinarySearchTreeTests {
         final Integer[] inOrder = testBST.getDFS(DepthFirstSearchOrder.inOrder);
         final Integer[] expectation = new Integer[]{1, 2, 3, 4, 5};
         for (int i=0; i<inOrder.length; i++) {
-            Assert.assertTrue(inOrder[i] == expectation[i]);
+            Assertions.assertTrue(inOrder[i] == expectation[i]);
         }
     }
 
@@ -125,7 +125,7 @@ public class BinarySearchTreeTests {
         final Integer[] inOrder = testBST.getDFS(DepthFirstSearchOrder.postOrder);
         final Integer[] expectation = new Integer[]{1, 3, 2, 5, 4};
         for (int i=0; i<inOrder.length; i++) {
-            Assert.assertTrue(inOrder[i] == expectation[i]);
+            Assertions.assertTrue(inOrder[i] == expectation[i]);
         }
     }
 

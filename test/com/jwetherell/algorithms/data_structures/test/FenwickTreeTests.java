@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.FenwickTree;
 import com.jwetherell.algorithms.data_structures.FenwickTree.Data;
@@ -134,6 +134,6 @@ public class FenwickTreeTests {
         String toString = "";
         if (isTrue==false)
             toString = "\n"+obj.toString();
-        Assert.assertTrue(msg+toString, isTrue);
+        Assertions.assertTrue(isTrue, msg+toString);
     }
 }

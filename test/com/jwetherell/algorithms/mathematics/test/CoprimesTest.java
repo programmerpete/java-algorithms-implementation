@@ -1,12 +1,12 @@
 package com.jwetherell.algorithms.mathematics.test;
 
 import com.jwetherell.algorithms.mathematics.Coprimes;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoprimesTest {
 
@@ -16,6 +16,6 @@ public class CoprimesTest {
         final List<Long> expected = Arrays.asList(1L, 16L, 32L, 164L, 1194891264L);
 
         for(int i = 0; i < args.size(); i++)
-            assertEquals(expected.get(i), Coprimes.getNumberOfCoprimes(args.get(i)));
+            assertEquals(expected.get(i).longValue(), Coprimes.getNumberOfCoprimes(args.get(i)));
     }
 }

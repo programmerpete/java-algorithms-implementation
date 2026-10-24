@@ -2,12 +2,12 @@ package com.jwetherell.algorithms.data_structures.test;
 
 import com.jwetherell.algorithms.data_structures.SuffixArray;
 import com.jwetherell.algorithms.data_structures.SuffixTree;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SuffixArrayTest {
 

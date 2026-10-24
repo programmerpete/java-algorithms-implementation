@@ -1,10 +1,10 @@
 package com.jwetherell.algorithms.mathematics.test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.mathematics.DiscreteLogarithm;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DiscreteLogarithmTest {
 

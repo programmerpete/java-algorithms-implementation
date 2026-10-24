@@ -1,6 +1,7 @@
 package com.jwetherell.algorithms.sequence.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +11,7 @@ import java.util.Set;
 import com.jwetherell.algorithms.sequence.LongestIncreasingSubsequence;
 import com.jwetherell.algorithms.sequence.LongestPalindromicSubsequence;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.sequence.FibonacciSequence;
 import com.jwetherell.algorithms.sequence.LargestSumContiguousSubarray;
@@ -27,10 +28,10 @@ public class Sequences {
         int length = 10000;
         int check = 50135000;
         long result = ArithmeticProgression.sequenceTotalUsingLoop(start, length);
-        assertTrue("Sequence Total Using Loop error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Sequence Total Using Loop error. result=" + result + " check=" + check);
 
         result = ArithmeticProgression.sequenceTotalUsingTriangularNumbers(start, length);
-        assertTrue("Sequence Total Using Triangular Numbers error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Sequence Total Using Triangular Numbers error. result=" + result + " check=" + check);
     }
 
     @Test
@@ -39,44 +40,44 @@ public class Sequences {
         int element = 25;
         int check = 75025;
         long result = FibonacciSequence.fibonacciSequenceUsingLoop(element);
-        assertTrue("Fibonacci Sequence Using Loop error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Fibonacci Sequence Using Loop error. result=" + result + " check=" + check);
 
         result = FibonacciSequence.fibonacciSequenceUsingRecursion(element);
-        assertTrue("Fibonacci Sequence Using Recursion error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Fibonacci Sequence Using Recursion error. result=" + result + " check=" + check);
 
         result = FibonacciSequence.fibonacciSequenceUsingMatrixMultiplication(element);
-        assertTrue("Fibonacci Sequence Using Matrix error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Fibonacci Sequence Using Matrix error. result=" + result + " check=" + check);
 
         result = FibonacciSequence.fibonacciSequenceUsingBinetsFormula(element);
-        assertTrue("Fibonacci Sequence Using Binet's formula error. result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Fibonacci Sequence Using Binet's formula error. result=" + result + " check=" + check);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFibonacciLoopExceptions() {
         // COMPUTE FIBONACCI SEQUENCE
-        int element = 93;
-        FibonacciSequence.fibonacciSequenceUsingLoop(element);
+        final int element = 93;
+        assertThrows(IllegalArgumentException.class, () -> FibonacciSequence.fibonacciSequenceUsingLoop(element));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFibonacciRecursionExceptions() {
         // COMPUTE FIBONACCI SEQUENCE
-        int element = 93;
-        FibonacciSequence.fibonacciSequenceUsingRecursion(element);
+        final int element = 93;
+        assertThrows(IllegalArgumentException.class, () -> FibonacciSequence.fibonacciSequenceUsingRecursion(element));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFibonacciMatrixExceptions() {
         // COMPUTE FIBONACCI SEQUENCE
-        int element = 93;
-        FibonacciSequence.fibonacciSequenceUsingMatrixMultiplication(element);
+        final int element = 93;
+        assertThrows(IllegalArgumentException.class, () -> FibonacciSequence.fibonacciSequenceUsingMatrixMultiplication(element));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFibonacciBinetsExceptions() {
         // COMPUTE FIBONACCI SEQUENCE
-        int element = 93;
-        FibonacciSequence.fibonacciSequenceUsingBinetsFormula(element);
+        final int element = 93;
+        assertThrows(IllegalArgumentException.class, () -> FibonacciSequence.fibonacciSequenceUsingBinetsFormula(element));
     }
 
     @Test
@@ -90,11 +91,11 @@ public class Sequences {
         char[] seq1 = new char[]{'G', 'A', 'C'};
         char[] seq2 = new char[]{'A', 'G', 'C', 'A', 'T'};
         LongestCommonSubsequence.MatrixPair pair = LongestCommonSubsequence.getLCS(seq1, seq2);
-        assertTrue("Longest common subsequence error. " +
+        assertTrue((resultLength == pair.getLongestSequenceLength() &&
+                        resultSequence.equals(pair.getLongestSequences())),
+                   "Longest common subsequence error. " +
                         "resultLength=" + resultLength + " seqLength=" + pair.getLongestSequenceLength() + " " +
-                        "resultSequence=" + resultSequence + " sequence=" + pair.getLongestSequences(),
-                (resultLength == pair.getLongestSequenceLength() &&
-                        resultSequence.equals(pair.getLongestSequences())));
+                        "resultSequence=" + resultSequence + " sequence=" + pair.getLongestSequences());
 
         resultLength = 3;
         resultSequence.clear();
@@ -107,11 +108,11 @@ public class Sequences {
         seq1 = new char[]{'G', 'A', 'C', 'V', 'X', 'T'};
         seq2 = new char[]{'A', 'G', 'C', 'A', 'T', 'X'};
         pair = LongestCommonSubsequence.getLCS(seq1, seq2);
-        assertTrue("Longest common subsequence error. " +
+        assertTrue((resultLength == pair.getLongestSequenceLength() &&
+                        resultSequence.equals(pair.getLongestSequences())),
+                   "Longest common subsequence error. " +
                         "resultLength=" + resultLength + " seqLength=" + pair.getLongestSequenceLength() + " " +
-                        "resultSequence=" + resultSequence + " sequence=" + pair.getLongestSequences(),
-                (resultLength == pair.getLongestSequenceLength() &&
-                        resultSequence.equals(pair.getLongestSequences())));
+                        "resultSequence=" + resultSequence + " sequence=" + pair.getLongestSequences());
     }
 
     @Test
@@ -143,11 +144,11 @@ public class Sequences {
         sequences.add(new int[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15});
         sequencesLis.add(new int[]{0, 2, 6, 9, 11, 15});
 
-        assertTrue("Longest increasing subsequence error. Sequences size=" + sequences.size() + " SequencesList size:" + sequencesLis.size(), sequences.size() == sequencesLis.size());
+        assertTrue(sequences.size() == sequencesLis.size(), "Longest increasing subsequence error. Sequences size=" + sequences.size() + " SequencesList size:" + sequencesLis.size());
 
         for (int i = 0; i < sequences.size(); ++i) {
             int[] resultSequence = LongestIncreasingSubsequence.getLongestIncreasingSubsequence(sequences.get(i));
-            assertTrue("Longest increasing subsequence error. Expected subsequence=" + Arrays.toString(sequencesLis.get(i)) + " result subsequence=" + Arrays.toString(resultSequence), Arrays.equals(resultSequence, sequencesLis.get(i)));
+            assertTrue(Arrays.equals(resultSequence, sequencesLis.get(i)), "Longest increasing subsequence error. Expected subsequence=" + Arrays.toString(sequencesLis.get(i)) + " result subsequence=" + Arrays.toString(resultSequence));
         }
     }
 
@@ -156,23 +157,23 @@ public class Sequences {
         final String a = "GeeksforGeeks";
         final String b = "Gks";
         final int result = SubsequenceCounter.getCount(a.toCharArray(), b.toCharArray());
-        assertTrue("Subsequence Counter, expected="+4+" result="+result, result==4);
+        assertTrue(result==4, "Subsequence Counter, expected="+4+" result="+result);
     }
 
     @Test
     public void testLargestSumContiguousSubarray() {
         final int result = LargestSumContiguousSubarray.getLargestSumContiguousSubarray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4});
-        assertTrue("Largest Sum of Contiguous Subarray, expected="+6+" result="+result, result==6);
+        assertTrue(result==6, "Largest Sum of Contiguous Subarray, expected="+6+" result="+result);
         final int result1 = LargestSumContiguousSubarray.getLargestSumContiguousSubarray(new int[]{-2, -1, -3, -4, -1, -2, -10, -5, -4});
-        assertTrue("Largest Sum of Contiguous Subarray, expected="+-1+" result1="+result1, result1==-1);
+        assertTrue(result1==-1, "Largest Sum of Contiguous Subarray, expected="+-1+" result1="+result1);
     }
 
     @Test
     public void testLongestPalindromicSubsequence() {
         final int result = LongestPalindromicSubsequence.getLongestPalindromeSubsequence("AABCDEBAZ");
-        assertTrue("Longest Palindromic Subsequence, expected="+5+" result="+result, result==5);
+        assertTrue(result==5, "Longest Palindromic Subsequence, expected="+5+" result="+result);
         final int result1 = LongestPalindromicSubsequence.getLongestPalindromeSubsequence("subsequence");
-        assertTrue("Longest Palindromic Subsequence, expected="+3+" result1="+result1, result1==3);
+        assertTrue(result1==3, "Longest Palindromic Subsequence, expected="+3+" result1="+result1);
     }
     
 }

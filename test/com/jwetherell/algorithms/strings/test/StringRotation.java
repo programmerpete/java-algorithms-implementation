@@ -1,9 +1,9 @@
 package com.jwetherell.algorithms.strings.test;
 
 import com.jwetherell.algorithms.strings.Rotation;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StringRotation {
 

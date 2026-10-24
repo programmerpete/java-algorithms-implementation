@@ -1,8 +1,8 @@
 package com.jwetherell.algorithms.mathematics.test;
 
 import com.jwetherell.algorithms.mathematics.Modular;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ModularArithmeticTest {
 
@@ -25,7 +25,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
     }
 
     @Test
@@ -45,7 +45,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
     }
 
     @Test
@@ -61,7 +61,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
     }
 
     @Test
@@ -81,7 +81,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
 
         exception = true;
         try {
@@ -90,7 +90,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
 
         exception = true;
         try {
@@ -99,7 +99,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
     }
 
     @Test
@@ -116,7 +116,7 @@ public class ModularArithmeticTest {
         } catch (IllegalArgumentException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
 
         exception = true;
         try {
@@ -124,6 +124,6 @@ public class ModularArithmeticTest {
         } catch (ArithmeticException e) {
             // ignore
         }
-        assertTrue("Exception expected", exception);
+        assertTrue(exception, "Exception expected");
     }
 }

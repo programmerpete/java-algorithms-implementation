@@ -1,6 +1,6 @@
 package com.jwetherell.algorithms.mathematics.test;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 import com.jwetherell.algorithms.mathematics.Exponentiation;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ExponentiationTest {
 
@@ -19,7 +19,7 @@ public class ExponentiationTest {
         final List<Integer> expectedResultList = Arrays.asList(1, 134217728, 268435456, 362797056, 1073741824, 410338673, 7962624);
 
         for (int i = 0; i < expectedResultList.size(); i++)
-            assertEquals(expectedResultList.get(i), Exponentiation.recursiveExponentiation(baseList.get(i), exponentList.get(i)));
+            assertEquals(expectedResultList.get(i).intValue(), Exponentiation.recursiveExponentiation(baseList.get(i), exponentList.get(i)));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ExponentiationTest {
         final List<Integer> expectedResultList = Arrays.asList(1, 134217728, 268435456, 362797056, 1073741824, 410338673, 7962624);
 
         for (int i = 0; i < expectedResultList.size(); i++)
-            assertEquals(expectedResultList.get(i), Exponentiation.fastRecursiveExponentiation(baseList.get(i), exponentList.get(i)));
+            assertEquals(expectedResultList.get(i).intValue(), Exponentiation.fastRecursiveExponentiation(baseList.get(i), exponentList.get(i)));
     }
 
     @Test
@@ -40,6 +40,6 @@ public class ExponentiationTest {
         final List<Integer> expectedResultList = Arrays.asList(1, 2, 1, 0, 1, 8, 4, 2178);
 
         for (int i = 0; i < expectedResultList.size(); i++)
-            assertEquals(expectedResultList.get(i), Exponentiation.fastRecursiveExponentiationModulo(baseList.get(i), exponentList.get(i), divisorList.get(i)));
+            assertEquals(expectedResultList.get(i).intValue(), Exponentiation.fastRecursiveExponentiationModulo(baseList.get(i), exponentList.get(i), divisorList.get(i)));
     }
 }

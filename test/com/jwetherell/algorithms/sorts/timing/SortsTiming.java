@@ -239,7 +239,7 @@ public class SortsTiming {
     private static class MergeNotInPlace extends Testable {
         @Override
         public String getName() {
-            return "MergeInPlace sort";
+            return "MergeNotInPlace sort";
         }
 
         @Override
@@ -381,7 +381,6 @@ public class SortsTiming {
             System.gc();
             System.gc();
             Thread.sleep(fSLEEP_INTERVAL);
-            System.runFinalization();
             Thread.sleep(fSLEEP_INTERVAL);
         } catch (InterruptedException ex) {
             ex.printStackTrace();

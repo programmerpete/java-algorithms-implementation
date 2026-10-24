@@ -2,12 +2,12 @@ package com.jwetherell.algorithms.graph.test;
 
 import com.jwetherell.algorithms.data_structures.Graph;
 import com.jwetherell.algorithms.graph.PushRelabel;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 import java.util.TreeMap;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PushRelabelTest {
 

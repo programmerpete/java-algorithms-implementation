@@ -1,9 +1,9 @@
 package com.jwetherell.algorithms.search.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.jwetherell.algorithms.search.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,41 +28,41 @@ public class Search {
     @Test
     public void testBruteForceSearch() {
         int index = LinearSearch.find(valueInArray, sorted);
-        assertTrue("Brute force error. expected=" + valueIndex + " got=" + index, (index == valueIndex));
+        assertTrue((index == valueIndex), "Brute force error. expected=" + valueIndex + " got=" + index);
         index = LinearSearch.find(valueNotInArray, sorted);
-        assertTrue("Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index, (index == Integer.MAX_VALUE));
+        assertTrue((index == Integer.MAX_VALUE), "Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index);
     }
 
     @Test
     public void testBinarySearch() {
         int index = BinarySearch.find(valueInArray, sorted, false);
-        assertTrue("Brute force error. expected=" + valueIndex + " got=" + index, (index == valueIndex));
+        assertTrue((index == valueIndex), "Brute force error. expected=" + valueIndex + " got=" + index);
         index = BinarySearch.find(valueNotInArray, sorted, false);
-        assertTrue("Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index, (index == Integer.MAX_VALUE));
+        assertTrue((index == Integer.MAX_VALUE), "Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index);
     }
 
     @Test
     public void testOptimizedBinarySearch() {
         int index = BinarySearch.find(valueInArray, sorted, true);
-        assertTrue("Brute force error. expected=" + valueIndex + " got=" + index, (index == valueIndex));
+        assertTrue((index == valueIndex), "Brute force error. expected=" + valueIndex + " got=" + index);
         index = BinarySearch.find(valueNotInArray, sorted, true);
-        assertTrue("Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index, (index == Integer.MAX_VALUE));
+        assertTrue((index == Integer.MAX_VALUE), "Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index);
     }
 
     @Test
     public void testInterpolationSearch() {
         int index = InterpolationSearch.find(valueInArray, sorted);
-        assertTrue("Brute force error. expected=" + valueIndex + " got=" + index, (index == valueIndex));
+        assertTrue((index == valueIndex), "Brute force error. expected=" + valueIndex + " got=" + index);
         index = InterpolationSearch.find(valueNotInArray, sorted);
-        assertTrue("Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index, (index == Integer.MAX_VALUE));
+        assertTrue((index == Integer.MAX_VALUE), "Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index);
     }
 
     @Test
     public void testQuickSelect() {
         int index = QuickSelect.find(valueInArray, sorted);
-        assertTrue("Brute force error. expected=" + valueIndex + " got=" + index, (index == valueIndex));
+        assertTrue((index == valueIndex), "Brute force error. expected=" + valueIndex + " got=" + index);
         index = QuickSelect.find(valueNotInArray, sorted);
-        assertTrue("Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index, (index == Integer.MAX_VALUE));
+        assertTrue((index == Integer.MAX_VALUE), "Brute force error. expected=" + Integer.MAX_VALUE + " got=" + index);
     }
 
     @Test
@@ -92,11 +92,11 @@ public class Search {
         soughtElements.add(44);
         resultIndexes.add(10);
 
-        assertTrue("Lower bound error. Sequences size=" + sequences.size() + " sough elements size=" + soughtElements.size() + " results size:" + resultIndexes.size(), sequences.size() == resultIndexes.size() && sequences.size() == soughtElements.size());
+        assertTrue(sequences.size() == resultIndexes.size() && sequences.size() == soughtElements.size(), "Lower bound error. Sequences size=" + sequences.size() + " sough elements size=" + soughtElements.size() + " results size:" + resultIndexes.size());
 
         for (int i = 0; i < sequences.size(); ++i) {
             int resultIndex = LowerBound.lowerBound(sequences.get(i), sequences.get(i).length, soughtElements.get(i));
-            assertTrue("Lower bound error. Sequence=" + Arrays.toString(sequences.get(i)) + " sought element=" + soughtElements.get(i) + " expected result=" + resultIndexes.get(i) + " got result=" + resultIndex, resultIndex == resultIndexes.get(i));
+            assertTrue(resultIndex == resultIndexes.get(i), "Lower bound error. Sequence=" + Arrays.toString(sequences.get(i)) + " sought element=" + soughtElements.get(i) + " expected result=" + resultIndexes.get(i) + " got result=" + resultIndex);
         }
 
     }
@@ -127,11 +127,11 @@ public class Search {
         soughtElements.add(44);
         resultIndexes.add(10);
 
-        assertTrue("Upper bound error. Sequences size=" + sequences.size() + " sough elements size=" + soughtElements.size() + " results size:" + resultIndexes.size(), sequences.size() == resultIndexes.size() && sequences.size() == soughtElements.size());
+        assertTrue(sequences.size() == resultIndexes.size() && sequences.size() == soughtElements.size(), "Upper bound error. Sequences size=" + sequences.size() + " sough elements size=" + soughtElements.size() + " results size:" + resultIndexes.size());
 
         for (int i = 0; i < sequences.size(); ++i) {
             int resultIndex = UpperBound.upperBound(sequences.get(i), sequences.get(i).length, soughtElements.get(i));
-            assertTrue("Upper bound error. Sequence=" + Arrays.toString(sequences.get(i)) + " sought element=" + soughtElements.get(i) + " expected result=" + resultIndexes.get(i) + " got result=" + resultIndex, resultIndex == resultIndexes.get(i));
+            assertTrue(resultIndex == resultIndexes.get(i), "Upper bound error. Sequence=" + Arrays.toString(sequences.get(i)) + " sought element=" + soughtElements.get(i) + " expected result=" + resultIndexes.get(i) + " got result=" + resultIndex);
         }
 
     }

@@ -3,9 +3,9 @@ package com.jwetherell.algorithms.graph.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.Graph;
 import com.jwetherell.algorithms.graph.BreadthFirstTraversal;
@@ -29,19 +29,19 @@ public class BreadthFirstTraversalTest {
     @Test
     public void test0() {
         final int[] result = BreadthFirstTraversal.breadthFirstTraversal(4, adjacencyMatrix, 2);
-        Assert.assertTrue(result[0]==2);
-        Assert.assertTrue(result[1]==0);
-        Assert.assertTrue(result[2]==3);
-        Assert.assertTrue(result[3]==1);
+        Assertions.assertTrue(result[0]==2);
+        Assertions.assertTrue(result[1]==0);
+        Assertions.assertTrue(result[2]==3);
+        Assertions.assertTrue(result[3]==1);
     }
 
     @Test
     public void test1() {
         final int[] result = BreadthFirstTraversal.breadthFirstTraversal(4, adjacencyMatrix, 0);
-        Assert.assertTrue(result[0]==0);
-        Assert.assertTrue(result[1]==1);
-        Assert.assertTrue(result[2]==2);
-        Assert.assertTrue(result[3]==3);
+        Assertions.assertTrue(result[0]==0);
+        Assertions.assertTrue(result[1]==1);
+        Assertions.assertTrue(result[2]==2);
+        Assertions.assertTrue(result[3]==3);
     }
 
     private static final List<Graph.Vertex<Integer>>    vertices    = new ArrayList<Graph.Vertex<Integer>>();
@@ -71,19 +71,19 @@ public class BreadthFirstTraversalTest {
     @Test
     public void test2() {
         final Graph.Vertex<Integer>[] result = BreadthFirstTraversal.breadthFirstTraversal(graph, v2);
-        Assert.assertTrue(result[0].getValue()==2);
-        Assert.assertTrue(result[1].getValue()==0);
-        Assert.assertTrue(result[2].getValue()==3);
-        Assert.assertTrue(result[3].getValue()==1);
+        Assertions.assertTrue(result[0].getValue()==2);
+        Assertions.assertTrue(result[1].getValue()==0);
+        Assertions.assertTrue(result[2].getValue()==3);
+        Assertions.assertTrue(result[3].getValue()==1);
     }
 
     @Test
     public void test3() {
         final Graph.Vertex<Integer>[] result = BreadthFirstTraversal.breadthFirstTraversal(graph, v0);
-        Assert.assertTrue(result[0].getValue()==0);
-        Assert.assertTrue(result[1].getValue()==1);
-        Assert.assertTrue(result[2].getValue()==2);
-        Assert.assertTrue(result[3].getValue()==3);
+        Assertions.assertTrue(result[0].getValue()==0);
+        Assertions.assertTrue(result[1].getValue()==1);
+        Assertions.assertTrue(result[2].getValue()==2);
+        Assertions.assertTrue(result[3].getValue()==3);
     }
 }
 

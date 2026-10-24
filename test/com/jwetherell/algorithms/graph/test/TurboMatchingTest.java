@@ -2,12 +2,12 @@ package com.jwetherell.algorithms.graph.test;
 
 import com.jwetherell.algorithms.data_structures.Graph;
 import com.jwetherell.algorithms.graph.TurboMatching;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TurboMatchingTest {

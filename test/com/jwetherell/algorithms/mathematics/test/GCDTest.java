@@ -1,9 +1,9 @@
 package com.jwetherell.algorithms.mathematics.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.mathematics.GreatestCommonDivisor;
 
@@ -23,18 +23,18 @@ public class GCDTest {
         long y = 867;
         long gcd = GreatestCommonDivisor.gcdUsingEuclides(x, y);
         long check = 51;
-        assertTrue("Euclids GCD error. expected="+check+" got="+gcd, (gcd==check));
+        assertTrue((gcd==check), "Euclids GCD error. expected="+check+" got="+gcd);
 
         x = 567;
         y = 56;
         gcd = GreatestCommonDivisor.gcdUsingEuclides(x, y);
         check = 7;
-        assertTrue("Euclids GCD error. expected="+check+" got="+gcd, (gcd==check));
+        assertTrue((gcd==check), "Euclids GCD error. expected="+check+" got="+gcd);
 
         x = 10002345;
         y = 67885;
         gcd = GreatestCommonDivisor.gcdUsingEuclides(x, y);
         check = 5;
-        assertTrue("Euclids GCD error. expected="+check+" got="+gcd, (gcd==check));
+        assertTrue((gcd==check), "Euclids GCD error. expected="+check+" got="+gcd);
     }
 }

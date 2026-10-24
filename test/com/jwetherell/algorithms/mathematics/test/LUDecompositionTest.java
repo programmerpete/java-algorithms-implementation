@@ -2,9 +2,9 @@ package com.jwetherell.algorithms.mathematics.test;
 
 import com.jwetherell.algorithms.data_structures.Matrix;
 import com.jwetherell.algorithms.mathematics.LUDecomposition;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LUDecompositionTest {
 

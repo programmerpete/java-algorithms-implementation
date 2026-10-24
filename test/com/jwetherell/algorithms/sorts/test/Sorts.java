@@ -1,10 +1,10 @@
 package com.jwetherell.algorithms.sorts.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.sorts.AmericanFlagSort;
 import com.jwetherell.algorithms.sorts.BubbleSort;
@@ -46,22 +46,22 @@ public class Sorts {
     public void testInsertionSorts() {
         // Insertion sort
         Integer[] result = InsertionSort.sort(unsorted.clone());
-        assertTrue("Inerstion sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Inerstion sort unsorted error. result="+print(result));
         result = InsertionSort.sort(sorted.clone());
-        assertTrue("Inerstion sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Inerstion sort sorted error. result="+print(result));
         result = InsertionSort.sort(reverse.clone());
-        assertTrue("Inerstion sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Inerstion sort reverse error. result="+print(result));
     }
 
     @Test
     public void testBubbleSorts() {
         // Bubble sort
         Integer[] result = BubbleSort.sort(unsorted.clone());
-        assertTrue("Bubble sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Bubble sort unsorted error. result="+print(result));
         result = BubbleSort.sort(sorted.clone());
-        assertTrue("Bubble sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Bubble sort sorted error. result="+print(result));
         result = BubbleSort.sort(reverse.clone());
-        assertTrue("Bubble sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Bubble sort reverse error. result="+print(result));
     }
 
     @Test
@@ -69,100 +69,100 @@ public class Sorts {
         int[] shells = new int[] { 10, 5, 3, 1 };
         // Shell's sort
         Integer[] result = ShellSort.sort(shells, unsorted.clone());
-        assertTrue("Shell's sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Shell's sort unsorted error. result="+print(result));
         result = ShellSort.sort(shells, sorted.clone());
-        assertTrue("Shell's sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Shell's sort sorted error. result="+print(result));
         result = ShellSort.sort(shells, reverse.clone());
-        assertTrue("Shell's sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Shell's sort reverse error. result="+print(result));
     }
 
     @Test
     public void testMergeSortsInPlace() {
         // Merge sort
         Integer[] result = MergeSort.sort(MergeSort.SPACE_TYPE.IN_PLACE, unsorted.clone());
-        assertTrue("Merge sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Merge sort unsorted error. result="+print(result));
         result = MergeSort.sort(MergeSort.SPACE_TYPE.IN_PLACE, sorted.clone());
-        assertTrue("Merge sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Merge sort sorted error. result="+print(result));
         result = MergeSort.sort(MergeSort.SPACE_TYPE.IN_PLACE, reverse.clone());
-        assertTrue("merge sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "merge sort reverse error. result="+print(result));
     }
 
     @Test
     public void testMergeSortsNotInPlace() {
         // Merge sort
         Integer[] result = MergeSort.sort(MergeSort.SPACE_TYPE.NOT_IN_PLACE, unsorted.clone());
-        assertTrue("Merge sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Merge sort unsorted error. result="+print(result));
         result = MergeSort.sort(MergeSort.SPACE_TYPE.NOT_IN_PLACE, sorted.clone());
-        assertTrue("Merge sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Merge sort sorted error. result="+print(result));
         result = MergeSort.sort(MergeSort.SPACE_TYPE.NOT_IN_PLACE, reverse.clone());
-        assertTrue("merge sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "merge sort reverse error. result="+print(result));
     }
 
     @Test
     public void testQuickSorts() {
         // Quicksort
         Integer[] result = QuickSort.sort(QuickSort.PIVOT_TYPE.FIRST, unsorted.clone());
-        assertTrue("Quick sort pivot firt unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot firt unsorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.FIRST, sorted.clone());
-        assertTrue("Quick sort pivot firt sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot firt sorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.FIRST, reverse.clone());
-        assertTrue("Quick sort pivot firt reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot firt reverse error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.MIDDLE, unsorted.clone());
-        assertTrue("Quick sort pivot middle unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot middle unsorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.MIDDLE, sorted.clone());
-        assertTrue("Quick sort pivot middle sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot middle sorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.MIDDLE, reverse.clone());
-        assertTrue("Quick sort pivot middle reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot middle reverse error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.RANDOM, unsorted.clone());
-        assertTrue("Quick sort pivot random unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot random unsorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.RANDOM, sorted.clone());
-        assertTrue("Quick sort pivot random sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot random sorted error. result="+print(result));
         result = QuickSort.sort(QuickSort.PIVOT_TYPE.RANDOM, reverse.clone());
-        assertTrue("Quick sort pivot random reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Quick sort pivot random reverse error. result="+print(result));
     }
 
     @Test
     public void testHeapSorts() {
         // Heapsort
         Integer[] result = HeapSort.sort(unsorted.clone());
-        assertTrue("Heap sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Heap sort unsorted error. result="+print(result));
         result = HeapSort.sort(sorted.clone());
-        assertTrue("Heap sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Heap sort sorted error. result="+print(result));
         result = HeapSort.sort(reverse.clone());
-        assertTrue("Heap sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Heap sort reverse error. result="+print(result));
     }
 
     @Test
     public void testCountingSorts() {
         // Counting sort
         Integer[] result = CountingSort.sort(unsorted.clone());
-        assertTrue("Counting sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Counting sort unsorted error. result="+print(result));
         result = CountingSort.sort(sorted.clone());
-        assertTrue("Counting sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Counting sort sorted error. result="+print(result));
         result = CountingSort.sort(reverse.clone());
-        assertTrue("Counting sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Counting sort reverse error. result="+print(result));
     }
 
     @Test
     public void testRadixSorts() {
         // Radix sort
         Integer[] result = RadixSort.sort(unsorted.clone());
-        assertTrue("Radix sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Radix sort unsorted error. result="+print(result));
         result = RadixSort.sort(sorted.clone());
-        assertTrue("Radix sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "Radix sort sorted error. result="+print(result));
         result = RadixSort.sort(reverse.clone());
-        assertTrue("Radix sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "Radix sort reverse error. result="+print(result));
     }
 
     @Test
     public void testAmericanFlagSorts() {
         // American Flag sort
         Integer[] result = AmericanFlagSort.sort(unsorted.clone());
-        assertTrue("American flag sort unsorted error. result="+print(result), check(result));
+        assertTrue(check(result), "American flag sort unsorted error. result="+print(result));
         result = AmericanFlagSort.sort(sorted.clone());
-        assertTrue("American flag sort sorted error. result="+print(result), check(result));
+        assertTrue(check(result), "American flag sort sorted error. result="+print(result));
         result = AmericanFlagSort.sort(reverse.clone());
-        assertTrue("American flag sort reverse error. result="+print(result), check(result));
+        assertTrue(check(result), "American flag sort reverse error. result="+print(result));
     }
 
     private static final boolean check(Integer[] array) {

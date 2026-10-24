@@ -1,9 +1,9 @@
 package com.jwetherell.algorithms.data_structures.test;
 
-import static org.junit.Assert.assertTrue;
-import junit.framework.Assert;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.RadixTrie;
 import com.jwetherell.algorithms.data_structures.test.common.JavaMapTest;
@@ -29,7 +29,7 @@ public class RadixTrieTests {
         map.put("11", 11);
         map.remove("11");
         Integer r = map.put("11", 11);
-        Assert.assertTrue(r==null);
+        Assertions.assertTrue(r==null);
     }
 
     private void runTests(TestData data) {

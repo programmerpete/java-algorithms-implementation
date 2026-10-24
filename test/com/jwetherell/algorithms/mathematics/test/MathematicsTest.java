@@ -1,11 +1,11 @@
 package com.jwetherell.algorithms.mathematics.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.mathematics.Distance;
 import com.jwetherell.algorithms.mathematics.Division;
@@ -34,62 +34,62 @@ public class MathematicsTest {
         {
             long result = Multiplication.multiplyUsingLoop(a, b);
             long check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingRecursion(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingShift(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLogs(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingFFT(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingLoopWithStringInput(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLoopWithIntegerInput(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
         }
         // negative * positive
         a *= -1;
         {
             long result = Multiplication.multiplyUsingLoop(a, b);
             long check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingRecursion(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingShift(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLogs(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingFFT(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingLoopWithStringInput(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLoopWithIntegerInput(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
         }
         // positive * negative
         a *= -1;
@@ -97,62 +97,62 @@ public class MathematicsTest {
         {
             long result = Multiplication.multiplyUsingLoop(a, b);
             long check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingRecursion(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingShift(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLogs(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingFFT(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingLoopWithStringInput(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLoopWithIntegerInput(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
         }
         // negative * negative
         a *= -1;
         {
             long result = Multiplication.multiplyUsingLoop(a, b);
             long check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingRecursion(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingShift(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLogs(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingFFT(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using FFT. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Integer.parseInt(Multiplication.multiplyUsingLoopWithStringInput(Integer.toString(a), Integer.toString(b)));
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with string input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
             result = Multiplication.multiplyUsingLoopWithIntegerInput(a, b);
             check = Multiplication.multiplication(a, b);
-            assertTrue("Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+            assertTrue((result == check), "Multiplication using loop with int input. a=" + a + " b=" + b + " result=" + result + " check=" + check);
         }
     }
 
@@ -162,23 +162,23 @@ public class MathematicsTest {
         int b = nextRandomInt(a, MAX);
         long result = Division.divisionUsingLoop(a, b);
         long check = Division.division(a, b);
-        assertTrue("Division using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Division using a loop. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
         result = Division.divisionUsingRecursion(a, b);
         check = Division.division(a, b);
-        assertTrue("Division using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Division using recursion. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
         result = Division.divisionUsingShift(a, b);
         check = Division.division(a, b);
-        assertTrue("Division using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Division using shifts. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
         result = Division.divisionUsingLogs(a, b);
         check = Division.division(a, b);
-        assertTrue("Division using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Division using logs. a=" + a + " b=" + b + " result=" + result + " check=" + check);
 
         result = Division.divisionUsingMultiplication(a, b);
         check = Division.division(a, b);
-        assertTrue("Division using multiplication. a=" + a + " b=" + b + " result=" + result + " check=" + check, (result == check));
+        assertTrue((result == check), "Division using multiplication. a=" + a + " b=" + b + " result=" + result + " check=" + check);
     }
 
     @Test
@@ -191,7 +191,7 @@ public class MathematicsTest {
         for (int i = 0; i < result.length; i++) {
             int r = result[i];
             int c = check[i];
-            assertTrue("Knapsack problem. expected=" + c + " got=" + r, r == c);
+            assertTrue(r == c, "Knapsack problem. expected=" + c + " got=" + r);
         }
     }
 
@@ -201,7 +201,7 @@ public class MathematicsTest {
         long[] point2 = new long[]{7, 8};
         long result = Distance.chebyshevDistance(point1, point2);
         long expected = 6;
-        assertTrue("Chebyshev Distance error. expected=" + expected + " got=" + result, (result == expected));
+        assertTrue((result == expected), "Chebyshev Distance error. expected=" + expected + " got=" + result);
     }
 
     @Test
@@ -212,7 +212,7 @@ public class MathematicsTest {
         int y2 = 8;
         double result = Distance.squaredDistance(x1, y1, x2, y2);
         double expected = 72.0;
-        assertTrue("squaredDistance error. expected=" + expected + " got=" + result, (result == expected));
+        assertTrue((result == expected), "squaredDistance error. expected=" + expected + " got=" + result);
     }
 
     @Test
@@ -223,7 +223,7 @@ public class MathematicsTest {
         int y2 = 8;
         double result = Distance.euclideanDistance(x1, y1, x2, y2);
         double expected = 8.48528137423857;
-        assertTrue("squaredDistance error. expected=" + expected + " got=" + result, (result == expected));
+        assertTrue((result == expected), "squaredDistance error. expected=" + expected + " got=" + result);
     }
 
     @Test
@@ -239,7 +239,7 @@ public class MathematicsTest {
         for (Long k : factorization.keySet()) {
             Long f = factorization.get(k);
             Long c = check.get(k);
-            assertTrue("PrimeFactorization error. expected=" + c + " got=" + f, (c == f));
+            assertTrue((c == f), "PrimeFactorization error. expected=" + c + " got=" + f);
         }
     }
 
@@ -247,54 +247,54 @@ public class MathematicsTest {
     public void isPrime() {
         int number = 1234;
         boolean isPrime = Primes.isPrime(number);
-        assertFalse("isPrime error. isPrime=" + isPrime, isPrime);
+        assertFalse(isPrime, "isPrime error. isPrime=" + isPrime);
 
         number = 7919;
         isPrime = Primes.isPrime(number);
-        assertTrue("isPrime error. isPrime=" + isPrime, isPrime);
+        assertTrue(isPrime, "isPrime error. isPrime=" + isPrime);
     }
 
     @Test
     public void sieveOfEratosthenes() {
         int number = 1;
         boolean isPrime = Primes.sieveOfEratosthenes(number);
-        assertFalse("Sieve Of Eratosthenes error.", isPrime);
+        assertFalse(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 31;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertTrue("Sieve Of Eratosthenes error.", isPrime);
+        assertTrue(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 64;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertFalse("Sieve Of Eratosthenes error.", isPrime);
+        assertFalse(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 4177;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertTrue("Sieve Of Eratosthenes error.", isPrime);
+        assertTrue(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 4178;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertFalse("Sieve Of Eratosthenes error.", isPrime);
+        assertFalse(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 7919;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertTrue("Sieve Of Eratosthenes error.", isPrime);
+        assertTrue(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 556;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertFalse("Sieve Of Eratosthenes error.", isPrime);
+        assertFalse(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 6091;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertTrue("Sieve Of Eratosthenes error.", isPrime);
+        assertTrue(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 6090;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertFalse("Sieve Of Eratosthenes error.", isPrime);
+        assertFalse(isPrime, "Sieve Of Eratosthenes error.");
 
         number = 6089;
         isPrime = Primes.sieveOfEratosthenes(number);
-        assertTrue("Sieve Of Eratosthenes error.", isPrime);
+        assertTrue(isPrime, "Sieve Of Eratosthenes error.");
     }
 
     @Test
@@ -303,10 +303,10 @@ public class MathematicsTest {
         final List<Integer> compositeNumbers = Arrays.asList(4, 9, 27, 2457, 26575, 34121);
 
         for (int prime : primeNumbers)
-            assertTrue("Miller-Rabin test error. " + prime, Primes.millerRabinTest(prime));
+            assertTrue(Primes.millerRabinTest(prime), "Miller-Rabin test error. " + prime);
 
         for (int composite : compositeNumbers)
-            assertFalse("Miller-Rabin test error. " + composite, Primes.millerRabinTest(composite));
+            assertFalse(Primes.millerRabinTest(composite), "Miller-Rabin test error. " + composite);
     }
 }
 

@@ -1,9 +1,9 @@
 package com.jwetherell.algorithms.data_structures.test;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-import static org.junit.Assert.assertArrayEquals;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.Matrix;
 
@@ -41,7 +41,7 @@ public class MatrixTests {
         Matrix<Integer> result1 = new Matrix<Integer>(4,2,array1);
 
         Matrix<Integer> matrix3 = matrix1.multiply(matrix2);
-        assertTrue("Matrix multiplication error. matrix3="+matrix3+" result1"+result1, matrix3.equals(result1));
+        assertTrue(matrix3.equals(result1), "Matrix multiplication error. matrix3="+matrix3+" result1"+result1);
 
         int rows = 2;
         int cols = 2;
@@ -57,7 +57,7 @@ public class MatrixTests {
         Matrix<Integer> result2 = new Matrix<Integer>(2,2,array2);
 
         Matrix<Integer> matrix5 = matrix4.subtract(matrix4);
-        assertTrue("Matrix subtraction error. matrix5="+matrix5+" result2"+result2, matrix5.equals(result2));
+        assertTrue(matrix5.equals(result2), "Matrix subtraction error. matrix5="+matrix5+" result2"+result2);
 
         // Result of addition
         Integer[][] array3 = new Integer[][]{{0,2},
@@ -65,7 +65,7 @@ public class MatrixTests {
         Matrix<Integer> result3 = new Matrix<Integer>(2,2,array3);
 
         Matrix<Integer> matrix6 = matrix4.add(matrix4);
-        assertTrue("Matrix addition error. matrix6="+matrix6+" result3"+result3, matrix6.equals(result3));
+        assertTrue(matrix6.equals(result3), "Matrix addition error. matrix6="+matrix6+" result3"+result3);
 
         Matrix<Integer> matrix7 = new Matrix<Integer>(2, 2);
         matrix7.set(0, 0, 1);
@@ -85,7 +85,7 @@ public class MatrixTests {
         Matrix<Integer> result4 = new Matrix<Integer>(2,2,array4);
 
         Matrix<Integer> matrix9 = matrix7.multiply(matrix8);
-        assertTrue("Matrix multiplication error. matrix9="+matrix9+" result4"+result4, matrix9.equals(result4));
+        assertTrue(matrix9.equals(result4), "Matrix multiplication error. matrix9="+matrix9+" result4"+result4);
     }
     
     @Test

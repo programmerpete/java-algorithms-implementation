@@ -1,14 +1,14 @@
 package com.jwetherell.algorithms.data_structures.test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.TernarySearchTree;
 import com.jwetherell.algorithms.data_structures.test.common.JavaCollectionTest;
@@ -42,23 +42,23 @@ public class TernarySearchTreeTests {
             bst.add(s);
         bst.add(null);
         bst.add("");
-        Assert.assertFalse(bst.add("BE"));
+        Assertions.assertFalse(bst.add("BE"));
 
         // contains
-        Assert.assertFalse(bst.contains(null));
-        Assert.assertFalse(bst.contains(""));
+        Assertions.assertFalse(bst.contains(null));
+        Assertions.assertFalse(bst.contains(""));
         for (String s : tests)
-            Assert.assertTrue(bst.contains(s));
-        Assert.assertFalse(bst.contains(null));
-        Assert.assertFalse(bst.contains(""));
+            Assertions.assertTrue(bst.contains(s));
+        Assertions.assertFalse(bst.contains(null));
+        Assertions.assertFalse(bst.contains(""));
 
         // remove
-        Assert.assertTrue(bst.remove(null)==null);
-        Assert.assertTrue(bst.remove("")==null);
+        Assertions.assertTrue(bst.remove(null)==null);
+        Assertions.assertTrue(bst.remove("")==null);
         for (String s : tests)
-            Assert.assertTrue(bst.remove(s)!=null);
-        Assert.assertTrue(bst.remove(null)==null);
-        Assert.assertTrue(bst.remove("")==null);
+            Assertions.assertTrue(bst.remove(s)!=null);
+        Assertions.assertTrue(bst.remove(null)==null);
+        Assertions.assertTrue(bst.remove("")==null);
     }
 
     @Test

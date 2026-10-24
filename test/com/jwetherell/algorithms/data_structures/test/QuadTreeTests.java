@@ -3,8 +3,8 @@ package com.jwetherell.algorithms.data_structures.test;
 import java.util.Collections;
 import java.util.Random;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.QuadTree;
 
@@ -116,7 +116,7 @@ public class QuadTreeTests {
         String toString = "";
         if (isFalse==true)
             toString = "\n"+obj.toString();
-        Assert.assertFalse(msg+toString, isFalse);
+        Assertions.assertFalse(isFalse, msg+toString);
     }
 
     // Assertion which won't call toString on the tree unless the assertion fails
@@ -124,6 +124,6 @@ public class QuadTreeTests {
         String toString = "";
         if (isTrue==false)
             toString = "\n"+obj.toString();
-        Assert.assertTrue(msg+toString, isTrue);
+        Assertions.assertTrue(isTrue, msg+toString);
     }
 }

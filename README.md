@@ -1,9 +1,34 @@
-Java : Algorithms and Data Structure ![alt tag](https://api.travis-ci.org/phishman3579/java-algorithms-implementation.svg?branch=master)
+Java : Algorithms and Data Structure [![CI](https://github.com/programmerpete/java-algorithms-implementation/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/programmerpete/java-algorithms-implementation/actions/workflows/ci.yml)
 ==============================
 
 The algorithms and data structures are implemented in Java.
 
 This is a collection of algorithms and data structures I've implemented in my academic and professional life. The code isn't optimized but is written to be correct and readable. The algorithms and data structures are tested and, unless noted, believed to be correct.
+
+## Building and testing
+
+The project is built with Maven and targets Java 25 (the current LTS). It also builds and
+tests clean on Java 27, the latest feature release.
+
+```bash
+mvn test     # compile and run the test suite
+mvn package  # build the jar
+```
+
+### Benchmarks
+
+The timing harnesses under `test/**/timing/` are run through Maven profiles. Each one forks
+a separate JVM (`-server -Xmx3g`) so that the timings are not distorted by Maven's own JVM:
+
+```bash
+mvn -Pbenchmark-sorts test-compile exec:exec
+mvn -Pbenchmark-data_structures test-compile exec:exec
+mvn -Pbenchmark-mathematics test-compile exec:exec
+mvn -Pbenchmark-numbers test-compile exec:exec
+mvn -Pbenchmark-search test-compile exec:exec
+mvn -Pbenchmark-sequences test-compile exec:exec
+mvn -Pbenchmark-strings test-compile exec:exec
+```
 
 ## Created by Justin Wetherell
 

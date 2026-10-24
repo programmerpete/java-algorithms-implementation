@@ -1,7 +1,7 @@
 package com.jwetherell.algorithms.graph.test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +11,8 @@ import java.util.Map;
 
 import com.jwetherell.algorithms.graph.*;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.data_structures.Graph;
 import com.jwetherell.algorithms.data_structures.Graph.Edge;
@@ -372,13 +372,13 @@ public class Graphs {
             for (Graph.Vertex<Integer> v : map1.keySet()) {
                 final Graph.CostPathPair<Integer> path1 = map1.get(v);
                 final Graph.CostPathPair<Integer> path2 = getIdealUndirectedPath(undirected).get(v);
-                assertTrue("Dijkstra's shortest path error. path1="+path1+" path2="+path2, path1.equals(path2));
+                assertTrue(path1.equals(path2), "Dijkstra's shortest path error. path1="+path1+" path2="+path2);
             }
 
             final Graph.CostPathPair<Integer> pair1 = Dijkstra.getShortestPath(undirected.graph, start, end);
-            assertTrue("No path from " + start.getValue() + " to " + end.getValue(), (pair1 != null));
+            assertTrue((pair1 != null), "No path from " + start.getValue() + " to " + end.getValue());
 
-            assertTrue("Dijkstra's shortest path error. pair="+pair1+" pair="+getIdealUndirectedPathPair(undirected), pair1.equals(getIdealUndirectedPathPair(undirected)));
+            assertTrue(pair1.equals(getIdealUndirectedPathPair(undirected)), "Dijkstra's shortest path error. pair="+pair1+" pair="+getIdealUndirectedPathPair(undirected));
         }
     }
 
@@ -394,11 +394,11 @@ public class Graphs {
             for (Graph.Vertex<Integer> v : map2.keySet()) {
                 final Graph.CostPathPair<Integer> path1 = map2.get(v);
                 final Graph.CostPathPair<Integer> path2 = getIdealUndirectedPath(undirected).get(v);
-                assertTrue("Bellman-Ford's shortest path error. path1="+path1+" path2="+path2, path1.equals(path2));
+                assertTrue(path1.equals(path2), "Bellman-Ford's shortest path error. path1="+path1+" path2="+path2);
             }
 
             final Graph.CostPathPair<Integer> pair2 = BellmanFord.getShortestPath(undirected.graph, start, end);
-            assertTrue("Bellman-Ford's shortest path error. pair="+pair2+" result="+getIdealUndirectedPathPair(undirected), pair2.equals(getIdealUndirectedPathPair(undirected)));
+            assertTrue(pair2.equals(getIdealUndirectedPathPair(undirected)), "Bellman-Ford's shortest path error. pair="+pair2+" result="+getIdealUndirectedPathPair(undirected));
         }
     }
 
@@ -422,7 +422,7 @@ public class Graphs {
                 list.add(new Graph.Edge<Integer>(6, undirected.v5, undirected.v4));
                 final Graph.CostPathPair<Integer> idealMST = new Graph.CostPathPair<Integer>(cost, list);
 
-                assertTrue("Prim's minimum spanning tree error. resultMST="+resultMST+" idealMST="+idealMST, resultMST.equals(idealMST));
+                assertTrue(resultMST.equals(idealMST), "Prim's minimum spanning tree error. resultMST="+resultMST+" idealMST="+idealMST);
             }
 
             // Prim on a graph with cycles
@@ -465,7 +465,7 @@ public class Graphs {
                 list.add(ce2_3);
                 final Graph.CostPathPair<Integer> result4 = new Graph.CostPathPair<Integer>(cost, list);
 
-                assertTrue("Prim's minimum spanning tree error. pair4="+pair4+" result4="+result4, pair4.equals(result4));
+                assertTrue(pair4.equals(result4), "Prim's minimum spanning tree error. pair4="+pair4+" result4="+result4);
             }
         }
     }
@@ -488,7 +488,7 @@ public class Graphs {
                 list.add(new Graph.Edge<Integer>(6, undirected.v5, undirected.v4));
                 final Graph.CostPathPair<Integer> idealMST = new Graph.CostPathPair<Integer>(cost, list);
 
-                assertTrue("Kruskal's minimum spanning tree error. resultMST=" + resultMST + " idealMST=" + idealMST, resultMST.getCost() == idealMST.getCost());
+                assertTrue(resultMST.getCost() == idealMST.getCost(), "Kruskal's minimum spanning tree error. resultMST=" + resultMST + " idealMST=" + idealMST);
             }
 
             // Kruskal on a graph with cycles
@@ -530,7 +530,7 @@ public class Graphs {
                 list.add(ce2_3);
                 final Graph.CostPathPair<Integer> result4 = new Graph.CostPathPair<Integer>(cost, list);
 
-                assertTrue("Kruskal's minimum spanning tree error. pair4=" + pair4 + " result4=" + result4, pair4.getCost() == result4.getCost());
+                assertTrue(pair4.getCost() == result4.getCost(), "Kruskal's minimum spanning tree error. pair4=" + pair4 + " result4=" + result4);
             }
         }
     }
@@ -546,14 +546,14 @@ public class Graphs {
         for (Graph.Vertex<Integer> v : map1.keySet()) {
             final Graph.CostPathPair<Integer> path1 = map1.get(v);
             final Graph.CostPathPair<Integer> path2 = getIdealDirectedPath(directed).get(v);
-            assertTrue("Dijkstra's shortest path error. path1="+path1+" path2="+path2, path1.equals(path2));
+            assertTrue(path1.equals(path2), "Dijkstra's shortest path error. path1="+path1+" path2="+path2);
         }
 
         final Graph.CostPathPair<Integer> pair1 = Dijkstra.getShortestPath(directed.graph, start, end);
-        assertTrue("No path from "+start.getValue()+" to "+end.getValue(), (pair1!=null));
+        assertTrue((pair1!=null), "No path from "+start.getValue()+" to "+end.getValue());
 
         // Compare pair
-        assertTrue("Dijkstra's shortest path error. pair1="+pair1+" idealPathPair="+getIdealPathPair(directed), pair1.equals(getIdealPathPair(directed)));
+        assertTrue(pair1.equals(getIdealPathPair(directed)), "Dijkstra's shortest path error. pair1="+pair1+" idealPathPair="+getIdealPathPair(directed));
     }
 
     @Test
@@ -568,14 +568,14 @@ public class Graphs {
         for (Graph.Vertex<Integer> v : map2.keySet()) {
             final Graph.CostPathPair<Integer> path1 = map2.get(v);
             final Graph.CostPathPair<Integer> path2 = getIdealDirectedPath(directed).get(v);
-            assertTrue("Bellman-Ford's shortest path error. path1="+path1+" path2="+path2, path1.equals(path2));
+            assertTrue(path1.equals(path2), "Bellman-Ford's shortest path error. path1="+path1+" path2="+path2);
         }
 
         final Graph.CostPathPair<Integer> pair2 = BellmanFord.getShortestPath(directed.graph, start, end);
-        assertTrue("No path from "+start.getValue()+" to "+end.getValue(), pair2!=null);
+        assertTrue(pair2!=null, "No path from "+start.getValue()+" to "+end.getValue());
 
         // Compare pair
-        assertTrue("Bellman-Ford's shortest path error. pair2="+pair2+" idealPathPair="+getIdealPathPair(directed), pair2.equals(getIdealPathPair(directed)));
+        assertTrue(pair2.equals(getIdealPathPair(directed)), "Bellman-Ford's shortest path error. pair2="+pair2+" idealPathPair="+getIdealPathPair(directed));
     }
 
     @Test
@@ -590,14 +590,14 @@ public class Graphs {
             for (Graph.Vertex<Integer> v : map1.keySet()) {
                 final Graph.CostPathPair<Integer> path1 = map1.get(v);
                 final Graph.CostPathPair<Integer> path2 = getIdealDirectedNegWeight(directedWithNegWeights).get(v);
-                assertTrue("Bellman-Ford's shortest path error. path1="+path1+" path2="+path2, path1.equals(path2));
+                assertTrue(path1.equals(path2), "Bellman-Ford's shortest path error. path1="+path1+" path2="+path2);
             }
 
             final Graph.CostPathPair<Integer> pair1 = BellmanFord.getShortestPath(directedWithNegWeights.graph, start, end);
-            assertTrue("No path from " + start.getValue() + " to " + end.getValue(), pair1 != null);
+            assertTrue(pair1 != null, "No path from " + start.getValue() + " to " + end.getValue());
 
             // Compare pair
-            assertTrue("Bellman-Ford's shortest path error. pair1="+pair1+" result2="+getIdealDirectedWithNegWeightsPathPair(directedWithNegWeights), pair1.equals(getIdealDirectedWithNegWeightsPathPair(directedWithNegWeights)));
+            assertTrue(pair1.equals(getIdealDirectedWithNegWeightsPathPair(directedWithNegWeights)), "Bellman-Ford's shortest path error. pair1="+pair1+" result2="+getIdealDirectedWithNegWeightsPathPair(directedWithNegWeights));
         }
     }
 
@@ -606,7 +606,7 @@ public class Graphs {
         final DirectedWithNegativeWeights directedWithNegWeights = new DirectedWithNegativeWeights();
         {
             final Map<Vertex<Integer>, Map<Vertex<Integer>, List<Edge<Integer>>>> path = Johnson.getAllPairsShortestPaths(directedWithNegWeights.graph);
-            assertTrue("Directed graph contains a negative weight cycle.", (path != null));
+            assertTrue((path != null), "Directed graph contains a negative weight cycle.");
 
             final Map<Vertex<Integer>, Map<Vertex<Integer>, List<Edge<Integer>>>> result = new HashMap<Vertex<Integer>, Map<Vertex<Integer>, List<Edge<Integer>>>>();
             {
@@ -688,15 +688,15 @@ public class Graphs {
                     final List<Edge<Integer>> list2 = map2.get(vertex2);
                     final Iterator<Edge<Integer>> iter1 = list1.iterator();
                     final Iterator<Edge<Integer>> iter2 = list2.iterator();
-                    assertTrue("Johnson's all-pairs shortest path error. size3="+list1.size()+" size4="+list2.size(), list1.size()==list2.size());
+                    assertTrue(list1.size()==list2.size(), "Johnson's all-pairs shortest path error. size3="+list1.size()+" size4="+list2.size());
 
                     while (iter1.hasNext() && iter2.hasNext()) {
                         Edge<Integer> e1 = (Edge<Integer>) iter1.next();
                         Edge<Integer> e2 = (Edge<Integer>) iter2.next();
-                        assertTrue("Johnson's all-pairs shortest path error. e1.from="+e1.getFromVertex()+" e2.from="+e2.getFromVertex(),
-                                   e1.getFromVertex().equals(e2.getFromVertex()));
-                        assertTrue("Johnson's all-pairs shortest path error. e1.to="+e1.getToVertex()+" e2.to="+e2.getToVertex(),
-                                   e1.getToVertex().equals(e2.getToVertex()));
+                        assertTrue(e1.getFromVertex().equals(e2.getFromVertex()),
+                                   "Johnson's all-pairs shortest path error. e1.from="+e1.getFromVertex()+" e2.from="+e2.getFromVertex());
+                        assertTrue(e1.getToVertex().equals(e2.getToVertex()),
+                                   "Johnson's all-pairs shortest path error. e1.to="+e1.getToVertex()+" e2.to="+e2.getToVertex());
                     }
                 }
             }
@@ -776,7 +776,7 @@ public class Graphs {
                 for (Vertex<Integer> v : m1.keySet()) {
                     final int i1 = m1.get(v);
                     final int i2 = m2.get(v);
-                    assertTrue("Floyd-Warshall's all-pairs shortest path weights error. i1="+i1+" i2="+i2, i1 == i2);
+                    assertTrue(i1 == i2, "Floyd-Warshall's all-pairs shortest path weights error. i1="+i1+" i2="+i2);
                 }
 
             }
@@ -817,7 +817,7 @@ public class Graphs {
             final Graph<Integer> undirectedWithCycle = new Graph<Integer>(cycledVerticies, cycledEdges);
 
             boolean result = CycleDetection.detect(undirectedWithCycle);
-            assertTrue("Cycle detection error.", result);
+            assertTrue(result, "Cycle detection error.");
 
             final List<Vertex<Integer>> verticies = new ArrayList<Vertex<Integer>>();
             final Graph.Vertex<Integer> v1 = new Graph.Vertex<Integer>(1);
@@ -848,7 +848,7 @@ public class Graphs {
             final Graph<Integer> undirectedWithoutCycle = new Graph<Integer>(verticies, edges);
 
             result = CycleDetection.detect(undirectedWithoutCycle);
-            assertFalse("Cycle detection error.", result);
+            assertFalse(result, "Cycle detection error.");
         }
     }
 
@@ -886,7 +886,7 @@ public class Graphs {
             final Graph<Integer> digraph = new Graph<Integer>(Graph.TYPE.DIRECTED, verticies, edges);
 
             final List<Graph.Vertex<Integer>> results1 = TopologicalSort.sort(digraph);
-            assertTrue("Topological sort error. results="+results1, results1.size()!=0);
+            assertTrue(results1.size()!=0, "Topological sort error. results="+results1);
 
             final List<Graph.Vertex<Integer>> results2 = new ArrayList<Graph.Vertex<Integer>>(results1.size());
             {  // Ideal sort
@@ -902,11 +902,11 @@ public class Graphs {
             {
                 final Iterator<Vertex<Integer>> iter1 = results1.iterator();
                 final Iterator<Vertex<Integer>> iter2 = results2.iterator();
-                assertTrue("Topological sort error. size1="+results1.size()+" size2="+results2.size(), results1.size()==results2.size());
+                assertTrue(results1.size()==results2.size(), "Topological sort error. size1="+results1.size()+" size2="+results2.size());
                 while (iter1.hasNext() && iter2.hasNext()) {
                     final Graph.Vertex<Integer> v1 = (Graph.Vertex<Integer>) iter1.next();
                     final Graph.Vertex<Integer> v2 = (Graph.Vertex<Integer>) iter2.next();
-                    assertTrue("Topological sort error. v1="+v1+" v2="+v2, v1.equals(v2));
+                    assertTrue(v1.equals(v2), "Topological sort error. v1="+v1+" v2="+v2);
                 }
             }
         }
@@ -916,41 +916,41 @@ public class Graphs {
     public void connectedComponents() {
         {
             final Graph<Integer> g = makeDirectedGraph(3, 2, new int[]{5, 4, 7});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==2);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==2);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(5, 1, new int[]{5, 3, 4, 5, 6});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==1);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==1);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(8, 51, new int[]{49, 57, 3, 95, 98, 100, 44, 40});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==3);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==3);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(28, 79, new int[]{123, 60, 227, 766, 400, 405, 24, 968, 359, 533, 689, 409,
                                                                          188, 677, 231, 295, 240, 52, 373, 243, 493, 645, 307, 781,
                                                                          523, 494, 950, 899});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==3);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==3);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(15, 564, new int[]{617, 400, 658, 30, 891, 517, 304, 156, 254, 610, 72, 371,
                                                                           411, 689, 381});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==10);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==10);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(13, 422, new int[]{87, 950, 773, 928, 696, 131, 809, 781, 348, 144, 717, 555, 311});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==6);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==6);
         }
 
         {
             final Graph<Integer> g = makeDirectedGraph(17, 599, new int[]{903, 868, 67, 690, 841, 815, 469, 554, 647, 235, 787, 221, 669,
                                                                           87, 60, 28, 324});
-            Assert.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==10);
+            Assertions.assertTrue(ConnectedComponents.getConnectedComponents(g).size()==10);
         }
     }
 
@@ -963,7 +963,7 @@ public class Graphs {
             final AStar<Integer> aStar = new AStar<Integer>();
             final List<Graph.Edge<Integer>> path = aStar.aStar(undirected.graph, start, end);
             final List<Graph.Edge<Integer>> ideal = getIdealUndirectedPath(undirected).get(end).getPath();
-            assertTrue("A* path error. path="+path+" idealPathPair="+ideal, path.equals(ideal));
+            assertTrue(path.equals(ideal), "A* path error. path="+path+" idealPathPair="+ideal);
         }
     }
 
@@ -976,7 +976,7 @@ public class Graphs {
             final AStar<Integer> aStar = new AStar<Integer>();
             final List<Graph.Edge<Integer>> path = aStar.aStar(directed.graph, start, end);
             final List<Graph.Edge<Integer>> ideal = getIdealDirectedPath(directed).get(end).getPath();
-            assertTrue("A* path error. path="+path+" idealPathPair="+ideal, path.equals(ideal));
+            assertTrue(path.equals(ideal), "A* path error. path="+path+" idealPathPair="+ideal);
         }
     }
 

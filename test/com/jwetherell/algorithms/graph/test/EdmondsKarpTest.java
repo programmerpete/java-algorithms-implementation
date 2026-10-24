@@ -2,9 +2,9 @@ package com.jwetherell.algorithms.graph.test;
 
 import com.jwetherell.algorithms.graph.EdmondsKarp;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 /**

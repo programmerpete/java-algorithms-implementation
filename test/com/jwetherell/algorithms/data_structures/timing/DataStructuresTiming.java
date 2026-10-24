@@ -1876,7 +1876,6 @@ public class DataStructuresTiming {
             System.gc();
             System.gc();
             Thread.sleep(sleep);
-            System.runFinalization();
             Thread.sleep(sleep);
         } catch (InterruptedException ex) {
             ex.printStackTrace();

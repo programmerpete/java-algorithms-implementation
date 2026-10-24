@@ -3,8 +3,8 @@ package com.jwetherell.algorithms.mathematics.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.jwetherell.algorithms.mathematics.RamerDouglasPeucker;
 
@@ -21,7 +21,7 @@ public class RamerDouglasPeuckerTest {
         final List<Double[]> expected = new ArrayList<Double[]>();
         expected.add(list.get(0));
         expected.add(list.get(2));
-        Assert.assertTrue(simplified.size()==2 && simplified.equals(expected));
+        Assertions.assertTrue(simplified.size()==2 && simplified.equals(expected));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class RamerDouglasPeuckerTest {
         expected.add(list.get(0));
         expected.add(list.get(1));
         expected.add(list.get(2));
-        Assert.assertTrue(simplified.size()==3 && simplified.equals(expected));
+        Assertions.assertTrue(simplified.size()==3 && simplified.equals(expected));
     }
 
     @Test
@@ -50,6 +50,6 @@ public class RamerDouglasPeuckerTest {
         final List<Double[]> expected = new ArrayList<Double[]>();
         expected.add(list.get(0));
         expected.add(list.get(2));
-        Assert.assertTrue(simplified.size()==2 && simplified.equals(expected));
+        Assertions.assertTrue(simplified.size()==2 && simplified.equals(expected));
     }
 }
