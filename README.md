@@ -7,8 +7,8 @@ This is a collection of algorithms and data structures I've implemented in my ac
 
 ## Building and testing
 
-The project is built with Maven and targets Java 25 (the current LTS). It also builds and
-tests clean on Java 27, the latest feature release.
+The project is built with Maven and targets Java 25 (the current LTS), so building requires
+JDK 25 or newer. CI also builds and tests on Java 27, the latest feature release.
 
 ```bash
 mvn test     # compile and run the test suite
@@ -23,6 +23,7 @@ a separate JVM (`-server -Xmx3g`) so that the timings are not distorted by Maven
 ```bash
 mvn -Pbenchmark-sorts test-compile exec:exec
 mvn -Pbenchmark-data_structures test-compile exec:exec
+mvn -Pbenchmark-spatial_data_structures test-compile exec:exec
 mvn -Pbenchmark-mathematics test-compile exec:exec
 mvn -Pbenchmark-numbers test-compile exec:exec
 mvn -Pbenchmark-search test-compile exec:exec
